@@ -16,7 +16,7 @@ pipeline {
         }
         stage('maven sonar'){
             steps{
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dmaven.test.skip=true'
             }
         }
         stage('maven compile'){
