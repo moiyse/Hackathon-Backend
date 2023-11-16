@@ -6,23 +6,21 @@ pipeline {
             steps {
                 echo 'Getting Project from Git'
                     git branch: 'master',
-                    url : 'https://github.com/moiyse/jari-backend.git'
+                    url : 'https://github.com/moiyse/Hackathon-Backend.git'
             }
         }
         stage('mvn clean') {
             steps{
-                sh '''
-                cd pfe
+                sh '
                 mvn clean
-                '''
+                '
             }
         }
         stage('maven son'){
             steps{
-                sh '''
-                cd pfe
+                sh '
                 mvn package
-                '''
+                '
             }
         }
     }
