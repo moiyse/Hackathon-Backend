@@ -11,16 +11,12 @@ pipeline {
         }
         stage('mvn clean') {
             steps{
-                sh '
-                mvn clean
-                '
+                sh 'mvn clean'
             }
         }
-        stage('maven son'){
+        stage('maven compile'){
             steps{
-                sh '
-                mvn package
-                '
+                sh 'mvn package'
             }
         }
     }
