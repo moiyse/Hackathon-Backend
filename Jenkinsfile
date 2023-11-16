@@ -14,6 +14,11 @@ pipeline {
                 sh 'mvn clean'
             }
         }
+        stage('maven sonar'){
+            steps{
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
         stage('maven compile'){
             steps{
                 sh 'mvn package'
