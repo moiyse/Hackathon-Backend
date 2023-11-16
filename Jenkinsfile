@@ -11,7 +11,12 @@ pipeline {
         }
         stage('mvn clean') {
             steps{
-                sh 'mvn clean'
+                sh 'mvn clean install'
+            }
+        }
+        stage('maven compile'){
+            steps{
+                sh 'mvn compile'
             }
         }
         stage('maven sonar'){
@@ -19,10 +24,6 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dmaven.test.skip=true'
             }
         }
-        stage('maven compile'){
-            steps{
-                sh 'mvn package'
-            }
-        }
+        
     }
 }
